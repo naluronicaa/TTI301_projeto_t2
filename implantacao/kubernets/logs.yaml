@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: logs
+spec:
+  containers:
+    - name: logs
+      image: nalu/logs:0.0.1
+      resources:
+        limits:
+          memory: 256Mi
+          cpu: 1

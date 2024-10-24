@@ -23,7 +23,7 @@ app.post('/eventos', (req, res) => {
   axios.post("http://classificacao-service:7000/eventos", evento); 
 
   // Envia o evento para o microsserviço de logs
-  axios.post("http://localhost:8000/eventos", evento);
+  axios.post("http://logs-service:8000/eventos", evento);
 
   res.status(200).send({ msg: "Evento propagado com sucesso!" });
 });
