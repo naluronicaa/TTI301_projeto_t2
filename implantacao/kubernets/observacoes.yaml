@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: observacoes
+spec:
+  containers:
+    - name: observacoes
+      image: nalu/observacoes:0.0.1
+      resources:
+        limits:
+          memory: 256Mi
+          cpu: 1

@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consulta-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: consulta
+  template:
+    metadata:
+      labels:
+        app: consulta
+    spec:
+      containers:
+        - name: consulta
+          image: nalu/consulta
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: consulta-service
+spec:
+  selector:
+    app: consulta
+  type: ClusterIP
+  ports:
+    - name: consulta
+      protocol: TCP
+      port: 6000
+      targetPort: 6000
